@@ -1,0 +1,80 @@
+import React from "react";
+
+import ShoppingCartProduct from "./shopping-cart-product";
+
+class ShoppingCartOverlay extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateAmountToPay = this.updateAmountToPay.bind(this);
+  }
+  closeOverlay() {
+    document.getElementById("overlay").style.display = "none";
+    document.querySelector("body").style.overflow = "auto";
+  }
+  updateAmountToPay(item) {
+    this.forceUpdate();
+  }
+  render() {
+    let itemsInCart = this.props.data.itemsInCart.map((item, index) => {
+      // Return key which defines an order of items inside a cart. The order in a cart is different than in database
+      return (
+        <ShoppingCartProduct
+          key={index}
+          item={item}
+          indexInCart={index}
+          removeFromCart={this.props.removeFromCart}
+          updateAmountToPay={this.updateAmountToPay}
+        />
+      );
+    });
+    let amountToPay = 0;
+    for (let i = 0; i < this.props.data.items.length; i++) {
+      amountToPay +=
+        this.props.data.items[i].price *
+        this.props.data.items[i].quantityInCart;
+    }
+    return (
+      <div id="overlay">
+        <section id="shopping-cart">
+          <div id="cart-header">
+            <span id="cart-title">Shopping Cart</span>
+            <i
+              className="far fa-times-circle"
+              onClick={this.closeOverlay.bind(this)}
+            ></i>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>{itemsInCart}</tbody>
+          </table>
+          <span id="empty-cart">
+            {itemsInCart.length == 0 ? "Shopping cart is empty" : ""}
+          </span>
+          <h3 id="cart-total">Cart Total</h3>
+          <div id="totals">
+            <span>Cart Totals</span>
+            <span>Number of items: {this.props.data.quantity}</span>
+            <span>Total: £{amountToPay}</span>
+          </div>
+          <button
+            id="checkout"
+            disabled={itemsInCart.length == 0 ? true : false}
+          >
+            Checkout
+          </button>
+        </section>
+      </div>
+    );
+  }
+}
+
+export default ShoppingCartOverlay;
