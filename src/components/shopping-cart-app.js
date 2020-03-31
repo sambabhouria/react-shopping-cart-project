@@ -17,7 +17,7 @@ import Header from "./header";
 import ShoppingCartOverlay from "./shopping-cart-overlay";
 import ProductList from "./product-list";
 
-import { shoppingProducts } from "./shopping-products";
+import { shoppingProducts } from "./../fake-data-base";
 
 import name from "./shopping-cart.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -58,6 +58,10 @@ class ShoppingCartApp extends React.Component {
     });
   }
   render() {
+    console.log(
+      "ShoppingCartApp -> constructor -> shoppingProducts",
+      shoppingProducts
+    );
     return (
       <main>
         <Header
