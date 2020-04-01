@@ -6,7 +6,14 @@ class ShoppingCartOverlay extends React.Component {
   constructor(props) {
     super(props);
     this.updateAmountToPay = this.updateAmountToPay.bind(this);
+    this.showCheckoutFrom = this.showCheckoutFrom.bind(this);
   }
+  showCheckoutFrom() {
+    document.getElementById("checkoutform").style.display = "flex";
+    document.getElementById("overlay").style.display = "none";
+    document.querySelector("body").style.overflow = "hidden";
+  }
+
   closeOverlay() {
     document.getElementById("overlay").style.display = "none";
     document.querySelector("body").style.overflow = "auto";
@@ -34,6 +41,7 @@ class ShoppingCartOverlay extends React.Component {
         this.props.data.items[i].quantityInCart;
     }
     return (
+      <>
       <div id="overlay">
         <section id="shopping-cart">
           <div id="cart-header">
@@ -68,11 +76,38 @@ class ShoppingCartOverlay extends React.Component {
           <button
             id="checkout"
             disabled={itemsInCart.length == 0 ? true : false}
+            onClick={this.showCheckoutFrom}
           >
             Checkout
           </button>
         </section>
       </div>
+      <div id="checkoutform">
+        <section id="shopping-cart">
+          <div id="cart-header">
+            <span id="cart-title">Checkout</span>
+            <i
+              className="far fa-times-circle"
+              onClick={this.closeOverlay.bind(this)}
+            ></i>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>{itemsInCart}</tbody>
+          </table>
+         
+        </section>
+      </div>
+    </>
     );
   }
 }

@@ -58,10 +58,6 @@ class ShoppingCartApp extends React.Component {
     });
   }
   render() {
-    console.log(
-      "ShoppingCartApp -> constructor -> shoppingProducts",
-      shoppingProducts
-    );
     return (
       <main>
         <Header

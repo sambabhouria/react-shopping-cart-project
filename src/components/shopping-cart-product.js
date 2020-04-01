@@ -26,6 +26,7 @@ class ShoppingCartProduct extends React.Component {
           <input
             type="number"
             name="quantity"
+            defaultValue="1"
             min="1"
             max="10"
             onChange={this.handleQuantityChange}

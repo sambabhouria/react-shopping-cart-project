@@ -85,10 +85,19 @@ header #cart i:hover {
   background-color: rgb(180, 40, 40);
   cursor: default;
 }
-.hide-price {
+/* .hide-price {
   display: none;
-}
+} */
 #overlay {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 20, 10, 0.75);
+}
+#checkoutform {
   position: fixed;
   display: none;
   justify-content: center;
