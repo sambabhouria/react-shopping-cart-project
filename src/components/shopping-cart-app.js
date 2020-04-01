@@ -19,8 +19,9 @@ import ProductList from "./product-list";
 
 import { shoppingProducts } from "./../fake-data-base";
 
-import name from "./shopping-cart.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./shopping-cart.css";
 class ShoppingCartApp extends React.Component {
   constructor(props) {
     super(props);
