@@ -21,6 +21,7 @@ import { shoppingProducts } from "./../fake-data-base";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+//import "uikit/dist/css/uikit.min.css";
 import "./shopping-cart.css";
 class ShoppingCartApp extends React.Component {
   constructor(props) {

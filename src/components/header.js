@@ -8,6 +8,7 @@ class Header extends React.Component {
     return (
       <header>
         <Navigation />
+
         <ShoppingCart
           quantity={this.props.quantity}
           amountToPay={this.props.amountToPay}

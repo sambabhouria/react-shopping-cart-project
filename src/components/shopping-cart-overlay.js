@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 
 import ShoppingCartProduct from "./shopping-cart-product";
 import { Checkout } from "./checkout";
+import { Contact } from "./contact";
 class ShoppingCartOverlay extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class ShoppingCartOverlay extends React.Component {
 
   closeOverlay() {
     document.getElementById("overlay").style.display = "none";
+    document.getElementById("checkoutform").style.display = "none";
     document.querySelector("body").style.overflow = "auto";
   }
   updateAmountToPay(item) {
@@ -83,6 +85,7 @@ class ShoppingCartOverlay extends React.Component {
           </section>
         </div>
         <Checkout />
+        <Contact />
       </Fragment>
     );
   }
