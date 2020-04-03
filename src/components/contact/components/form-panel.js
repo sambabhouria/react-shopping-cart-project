@@ -6,7 +6,13 @@ import TextareaInput from "./inputs/textarea-input";
 import CheckboxInput from "./inputs/checkbox-input";
 import SelectInput from "./inputs/select-input";
 
-function FormPanel({ title, btnName, submitCallback, model }) {
+function FormPanel({
+  title,
+  btnName,
+  submitCallback,
+  model,
+  closeContactForm
+}) {
   const [inputs, setInputs, setSubmit] = useForm(model, submitCallback);
 
   const Components = {
@@ -27,7 +33,15 @@ function FormPanel({ title, btnName, submitCallback, model }) {
 
   return (
     <section>
-      <h1 className="uk-heading-divider uk-text-center">{title}</h1>
+      <h1 className="uk-heading-divider uk-text-center">
+        <span style={{ marginRight: "20px" }}>{title}</span>
+        <i
+          className="far fa-times-circle"
+          onClick={closeContactForm}
+          style={{ fontSize: "1em" }}
+        ></i>
+      </h1>
+
       <form>
         {inputs.map(input => renderInput(input))}
         <div className="uk-text-center">

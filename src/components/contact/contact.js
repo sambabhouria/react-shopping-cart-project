@@ -1,6 +1,5 @@
 import React from "react";
 
-//import "uikit/dist/css/uikit.min.css";
 import RegisterForm from "./components/register-form";
 
 function Contact() {

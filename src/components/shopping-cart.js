@@ -12,8 +12,8 @@ class ShoppingCart extends React.Component {
     return (
       <div id="cart">
         {/* Hide a number of items if it's equal 0 */}
-        <span className={this.props.quantity == 0 ? "hide-price" : ""}>
-          {this.props.quantity == 0
+        <span className={this.props.quantity === 0 ? "hide-price" : ""}>
+          {this.props.quantity === 0
             ? "Your cart (empty)  "
             : this.props.quantity}
         </span>
