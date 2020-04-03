@@ -67,7 +67,7 @@ class ShoppingCartOverlay extends React.Component {
               <tbody>{itemsInCart}</tbody>
             </table>
             <span id="empty-cart">
-              {itemsInCart.length == 0 ? "Shopping cart is empty" : ""}
+              {itemsInCart.length === 0 ? "Shopping cart is empty" : ""}
             </span>
             <h3 id="cart-total">Cart Total</h3>
             <div id="totals">
@@ -77,7 +77,7 @@ class ShoppingCartOverlay extends React.Component {
             </div>
             <button
               id="checkout"
-              disabled={itemsInCart.length == 0 ? true : false}
+              disabled={itemsInCart.length === 0 ? true : false}
               onClick={this.showCheckoutFrom}
             >
               Checkout
